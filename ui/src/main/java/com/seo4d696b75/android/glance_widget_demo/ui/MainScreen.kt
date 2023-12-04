@@ -8,7 +8,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.seo4d696b75.android.glance_widget_demo.ui.theme.AppTheme
+import androidx.compose.ui.res.stringResource
+import com.seo4d696b75.android.glance_widget_demo.theme.AppTheme
 
 @Composable
 fun MainScreen(
@@ -24,7 +25,7 @@ fun MainScreen(
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    text = "Hello glance widget!",
+                    text = stringResource(id = R.string.main_hello_message),
                 )
             }
         }
