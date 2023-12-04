@@ -1,4 +1,4 @@
-package com.seo4d696b75.android.glance_widget_demo.ui.theme
+package com.seo4d696b75.android.glance_widget_demo.color
 
 import androidx.compose.ui.graphics.Color
 

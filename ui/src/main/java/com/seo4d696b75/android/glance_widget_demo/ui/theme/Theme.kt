@@ -16,15 +16,15 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = com.seo4d696b75.android.glance_widget_demo.color.Purple80,
+    secondary = com.seo4d696b75.android.glance_widget_demo.color.PurpleGrey80,
+    tertiary = com.seo4d696b75.android.glance_widget_demo.color.Pink80
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = com.seo4d696b75.android.glance_widget_demo.color.Purple40,
+    secondary = com.seo4d696b75.android.glance_widget_demo.color.PurpleGrey40,
+    tertiary = com.seo4d696b75.android.glance_widget_demo.color.Pink40
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -38,7 +38,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun GlancewidgetdemoTheme(
+fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

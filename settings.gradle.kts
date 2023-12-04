@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "glance-widget-demo"
 include(":app")
- 
+include(":color")
+include(":ui")
