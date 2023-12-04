@@ -1,4 +1,4 @@
-package com.seo4d696b75.android.glance_widget_demo.ui.theme
+package com.seo4d696b75.android.glance_widget_demo.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

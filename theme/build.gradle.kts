@@ -31,10 +31,18 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3"
+    }
 }
 
 dependencies {
     implementation(libs.androidx.core)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui.graphics)
+    implementation(libs.material3)
+    implementation(libs.androidx.glance.material3)
 }
