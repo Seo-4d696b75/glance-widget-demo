@@ -46,4 +46,5 @@ dependencies {
     implementation(libs.androidx.glance)
     implementation(libs.androidx.glance.material3)
     implementation(project(":theme"))
+    implementation(project(":domain"))
 }

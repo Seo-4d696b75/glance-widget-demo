@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_label">Demo</string>
-    <string name="widget_description">Show "Hello" text on widget.</string>
+    <string name="widget_description">Run counter on widget.</string>
     <string name="widget_hello_message">Hello glance!</string>
+    <string name="widget_counter_title">Counter</string>
 </resources>
