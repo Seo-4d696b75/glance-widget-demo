@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">glance-demo</string>
+    <string name="appwidget_label">Demo</string>
+    <string name="appwidget_description">Show "Hello" text on widget.</string>
 </resources>
