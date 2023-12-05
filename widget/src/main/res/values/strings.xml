@@ -4,4 +4,6 @@
     <string name="widget_description">Run counter on widget.</string>
     <string name="widget_hello_message">Hello glance!</string>
     <string name="widget_counter_title">Counter</string>
+    <string name="widget_increment_label">Increment</string>
+    <string name="widget_decrement_label">Decrement</string>
 </resources>
