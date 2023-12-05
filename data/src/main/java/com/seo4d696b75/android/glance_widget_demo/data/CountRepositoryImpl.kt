@@ -6,11 +6,16 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Inject
+import kotlin.math.max
 import kotlin.math.min
 
 class CountRepositoryImpl @Inject constructor() : CountRepository {
     override fun increment(current: Int): Int {
         return min(current + 1, 99)
+    }
+
+    override fun decrement(current: Int): Int {
+        return max(current - 1, 0)
     }
 }
 
