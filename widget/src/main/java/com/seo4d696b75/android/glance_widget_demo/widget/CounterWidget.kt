@@ -11,9 +11,12 @@ import androidx.glance.currentState
 import com.seo4d696b75.android.glance_widget_demo.domain.CountRepository
 import com.seo4d696b75.android.glance_widget_demo.theme.WidgetTheme
 import com.seo4d696b75.android.glance_widget_demo.widget.screen.CounterScreen
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 class CounterWidget constructor(
     private val repository: CountRepository,
+    private val coroutineScope: CoroutineScope,
 ) : GlanceAppWidget() {
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         provideContent {
@@ -22,6 +25,12 @@ class CounterWidget constructor(
             WidgetTheme {
                 CounterScreen(
                     count = state,
+                    onIncrement = {
+                        coroutineScope.launch { increment(context, id) }
+                    },
+                    onDecrement = {
+                        coroutineScope.launch { decrement(context, id) }
+                    },
                 )
             }
         }
@@ -31,6 +40,15 @@ class CounterWidget constructor(
         updateAppWidgetState(context, glanceId) {
             val current = it[PREF_KEY_COUNT] ?: 0
             val next = repository.increment(current)
+            it[PREF_KEY_COUNT] = next
+        }
+        update(context, glanceId)
+    }
+
+    suspend fun decrement(context: Context, glanceId: GlanceId) {
+        updateAppWidgetState(context, glanceId) {
+            val current = it[PREF_KEY_COUNT] ?: 0
+            val next = repository.decrement(current)
             it[PREF_KEY_COUNT] = next
         }
         update(context, glanceId)
