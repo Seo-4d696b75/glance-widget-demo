@@ -5,20 +5,19 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.glance.GlanceId
 import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.appwidget.GlanceAppWidgetManager
 import androidx.glance.appwidget.provideContent
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.currentState
 import com.seo4d696b75.android.glance_widget_demo.domain.CountRepository
 import com.seo4d696b75.android.glance_widget_demo.theme.WidgetTheme
 import com.seo4d696b75.android.glance_widget_demo.widget.screen.CounterScreen
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 class CounterWidget constructor(
     private val repository: CountRepository,
-    private val coroutineScope: CoroutineScope,
 ) : GlanceAppWidget() {
     override suspend fun provideGlance(context: Context, id: GlanceId) {
+        val appWidgetId = GlanceAppWidgetManager(context).getAppWidgetId(id)
         provideContent {
             val pref: Preferences = currentState()
             val state = pref[PREF_KEY_COUNT] ?: 0
@@ -26,10 +25,10 @@ class CounterWidget constructor(
                 CounterScreen(
                     count = state,
                     onIncrement = {
-                        coroutineScope.launch { increment(context, id) }
+                        CountWorker.requestIncrement(context, intArrayOf(appWidgetId))
                     },
                     onDecrement = {
-                        coroutineScope.launch { decrement(context, id) }
+                        CountWorker.requestDecrement(context, intArrayOf(appWidgetId))
                     },
                 )
             }
