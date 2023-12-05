@@ -7,8 +7,8 @@ plugins {
 }
 
 android {
-    namespace = "com.seo4d696b75.android.glance_widget_demo.widget"
-    compileSdk = 34
+    namespace = "com.seo4d696b75.android.glance_widget_demo.data"
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 27
@@ -33,24 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
-    }
 }
 
 dependencies {
-
-    implementation(libs.androidx.core)
-
-    implementation(libs.androidx.glance)
-    implementation(libs.androidx.glance.material3)
-
-    implementation(project(":theme"))
     implementation(project(":domain"))
-
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 }
