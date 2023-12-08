@@ -4,12 +4,13 @@ Android demo widget implemented with [Glance](https://developer.android.com/jetp
 
 ## Features
 
-- ✅ Simple state-less widget
+- ✅ Stateful widget
+- ✅ Handles user interaction
 - ✅ Supports dark mode by Material3 color system
 
+![tap_glance](https://github.com/Seo-4d696b75/glance-widget-demo/assets/25225028/c00ecc75-01bf-4a83-a91c-cb23070b2ac8)
+![tap_glance_dark](https://github.com/Seo-4d696b75/glance-widget-demo/assets/25225028/de8c82e8-25c8-4299-a95b-8a7f4ac29a0c)
 
-![hello_glance](https://github.com/Seo-4d696b75/glance-widget-demo/assets/25225028/c8d6cb8d-aa4e-4a91-94e1-e8c5c4785a49)
-![widget_dark_mode](https://github.com/Seo-4d696b75/glance-widget-demo/assets/25225028/a0b32ccf-409a-4de6-acf1-1f3cb7362cf1)
 
 ## Modules structures
 
