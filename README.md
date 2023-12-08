@@ -6,9 +6,10 @@ Android demo widget implemented with [Glance](https://developer.android.com/jetp
 
 - ✅ Stateful widget
 - ✅ Handles user interaction
+- ✅ Async operation on Worker
 - ✅ Supports dark mode by Material3 color system
 
-![tap_glance](https://github.com/Seo-4d696b75/glance-widget-demo/assets/25225028/c00ecc75-01bf-4a83-a91c-cb23070b2ac8)
+![async_glance](https://github.com/Seo-4d696b75/glance-widget-demo/assets/25225028/f0250095-3e51-47da-af41-a86527637c90)
 ![tap_glance_dark](https://github.com/Seo-4d696b75/glance-widget-demo/assets/25225028/de8c82e8-25c8-4299-a95b-8a7f4ac29a0c)
 
 
