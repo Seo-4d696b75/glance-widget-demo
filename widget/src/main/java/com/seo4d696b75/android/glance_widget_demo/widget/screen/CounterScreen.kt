@@ -4,14 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.ColorFilter
-import androidx.glance.ExperimentalGlanceApi
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
-import androidx.glance.action.clickable
-import androidx.glance.appwidget.cornerRadius
-import androidx.glance.background
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.Column
@@ -28,7 +24,6 @@ import androidx.glance.text.TextAlign
 import androidx.glance.text.TextStyle
 import com.seo4d696b75.android.glance_widget_demo.widget.R
 
-@OptIn(ExperimentalGlanceApi::class)
 @Composable
 fun CounterScreen(
     count: Int,
@@ -64,18 +59,12 @@ fun CounterScreen(
             Row(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Image(
-                    provider = ImageProvider(R.drawable.ic_arrow_down),
+                CounterIconButton(
+                    iconProvider = ImageProvider(R.drawable.ic_arrow_down),
                     contentDescription = glanceString(R.string.widget_decrement_label),
-                    colorFilter = ColorFilter.tint(GlanceTheme.colors.onPrimary),
-                    modifier = GlanceModifier
-                        .size(32.dp)
-                        .background(GlanceTheme.colors.primary)
-                        .cornerRadius(16.dp)
-                        .clickable(
-                            key = "decrement",
-                            block = onDecrement,
-                        ),
+                    key = "decrement",
+                    onClick = onDecrement,
+                    modifier = GlanceModifier.size(32.dp),
                 )
                 Spacer(
                     modifier = GlanceModifier.width(8.dp),
@@ -93,18 +82,12 @@ fun CounterScreen(
                 Spacer(
                     modifier = GlanceModifier.width(8.dp),
                 )
-                Image(
-                    provider = ImageProvider(R.drawable.ic_arrow_up),
+                CounterIconButton(
+                    iconProvider = ImageProvider(R.drawable.ic_arrow_up),
                     contentDescription = glanceString(R.string.widget_increment_label),
-                    colorFilter = ColorFilter.tint(GlanceTheme.colors.onPrimary),
-                    modifier = GlanceModifier
-                        .size(32.dp)
-                        .background(GlanceTheme.colors.primary)
-                        .cornerRadius(16.dp)
-                        .clickable(
-                            key = "increment",
-                            block = onIncrement,
-                        ),
+                    key = "increment",
+                    onClick = onIncrement,
+                    modifier = GlanceModifier.size(32.dp),
                 )
             }
         }
