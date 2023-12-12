@@ -73,6 +73,14 @@ class CounterWidget constructor(
         update(context, glanceId)
     }
 
+    suspend fun initialize(context: Context, glanceId: GlanceId, count: Int) {
+        updateAppWidgetState(context, glanceId) {
+            it[PREF_KEY_COUNT] = count
+            it[PREF_KEY_IS_LOADING] = false
+        }
+        update(context, glanceId)
+    }
+
     companion object {
         private val PREF_KEY_COUNT = intPreferencesKey("pref_key_count")
         private val PREF_KEY_IS_LOADING = booleanPreferencesKey("pref_key_is_loading")
