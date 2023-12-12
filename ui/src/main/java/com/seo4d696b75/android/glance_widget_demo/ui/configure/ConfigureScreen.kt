@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,16 +31,23 @@ import com.seo4d696b75.android.glance_widget_demo.ui.R
 
 @Composable
 fun ConfigureScreen(
-    onCompleted: (Int) -> Unit,
+    onCompleted: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ConfigureViewModel = viewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    LaunchedEffect(uiState.hasCompleted) {
+        if (uiState.hasCompleted) {
+            onCompleted()
+        }
+    }
+
     ConfigureScreen(
         input = uiState.input,
         isError = uiState.isError,
         onInputChanged = viewModel::onInputChanged,
-        onCompleted = { onCompleted(uiState.count) },
+        addWidget = viewModel::initializeWidget,
         modifier = modifier,
     )
 }
@@ -50,7 +58,7 @@ fun ConfigureScreen(
     input: String,
     isError: Boolean,
     onInputChanged: (String) -> Unit,
-    onCompleted: () -> Unit,
+    addWidget: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     AppTheme {
@@ -93,7 +101,7 @@ fun ConfigureScreen(
                         modifier = Modifier.height(48.dp),
                     )
                     Button(
-                        onClick = onCompleted,
+                        onClick = addWidget,
                         enabled = !isError,
                     ) {
                         Text(
@@ -113,7 +121,7 @@ private fun ConfigureScreenPreview() {
         input = "10",
         isError = false,
         onInputChanged = {},
-        onCompleted = {},
+        addWidget = {},
     )
 }
 
@@ -124,6 +132,6 @@ private fun ConfigureScreenPreview_invalid() {
         input = "zero",
         isError = true,
         onInputChanged = {},
-        onCompleted = {},
+        addWidget = {},
     )
 }

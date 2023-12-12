@@ -5,6 +5,6 @@ import androidx.compose.runtime.Immutable
 @Immutable
 data class ConfigureUiState(
     val input: String,
-    val count: Int,
     val isError: Boolean,
+    val hasCompleted: Boolean,
 )

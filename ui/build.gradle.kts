@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.material3)
 
     implementation(project(":theme"))
+    implementation(project(":domain"))
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
