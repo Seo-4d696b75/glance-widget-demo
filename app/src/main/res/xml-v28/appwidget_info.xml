@@ -9,4 +9,4 @@
     android:resizeMode="none"
     android:updatePeriodMillis="1800000"
     android:widgetCategory="home_screen"
-    android:widgetFeatures="reconfigurable"/>
+    android:widgetFeatures="reconfigurable|configuration_optional"/>
