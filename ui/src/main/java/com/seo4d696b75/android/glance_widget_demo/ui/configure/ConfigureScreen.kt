@@ -47,7 +47,7 @@ fun ConfigureScreen(
         input = uiState.input,
         isError = uiState.isError,
         onInputChanged = viewModel::onInputChanged,
-        addWidget = viewModel::initializeWidget,
+        addWidget = viewModel::complete,
         modifier = modifier,
     )
 }

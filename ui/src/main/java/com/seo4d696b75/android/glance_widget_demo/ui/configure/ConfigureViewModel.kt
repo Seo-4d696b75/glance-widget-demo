@@ -5,7 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.seo4d696b75.android.glance_widget_demo.domain.CountRepository
-import com.seo4d696b75.android.glance_widget_demo.domain.CounterWidgetInitializer
+import com.seo4d696b75.android.glance_widget_demo.domain.CounterWidgetMediator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ConfigureViewModel @Inject constructor(
     private val repository: CountRepository,
-    private val initializeCounterWidget: CounterWidgetInitializer,
+    private val mediator: CounterWidgetMediator,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -32,6 +32,20 @@ class ConfigureViewModel @Inject constructor(
             hasCompleted = false,
         )
     )
+
+    init {
+        viewModelScope.launch {
+            val initialCount = mediator.getCount(appWidgetId)
+            count = initialCount
+            _uiState.update {
+                ConfigureUiState(
+                    input = initialCount.toString(),
+                    isError = false,
+                    hasCompleted = false,
+                )
+            }
+        }
+    }
 
     val uiState = _uiState.asStateFlow()
 
@@ -53,10 +67,10 @@ class ConfigureViewModel @Inject constructor(
         }
     }
 
-    fun initializeWidget() {
+    fun complete() {
         if (_uiState.value.isError) return
         viewModelScope.launch {
-            initializeCounterWidget(appWidgetId, count)
+            mediator.setCount(appWidgetId, count)
             _uiState.update {
                 it.copy(hasCompleted = true)
             }
