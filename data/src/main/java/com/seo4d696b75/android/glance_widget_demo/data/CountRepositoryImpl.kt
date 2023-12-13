@@ -20,6 +20,8 @@ class CountRepositoryImpl @Inject constructor() : CountRepository {
         delay(1000L)
         return max(current - 1, 0)
     }
+
+    override fun validate(count: Int) = count in 0..99
 }
 
 @Suppress("unused")

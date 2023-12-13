@@ -4,6 +4,7 @@ import android.appwidget.AppWidgetManager
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.seo4d696b75.android.glance_widget_demo.domain.CountRepository
 import com.seo4d696b75.android.glance_widget_demo.domain.CounterWidgetInitializer
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,6 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ConfigureViewModel @Inject constructor(
+    private val repository: CountRepository,
     private val initializeCounterWidget: CounterWidgetInitializer,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
@@ -36,7 +38,7 @@ class ConfigureViewModel @Inject constructor(
     fun onInputChanged(text: String) {
         val value = text.toIntOrNull()
         _uiState.update {
-            if (value != null && value in 1..99) {
+            if (value != null && repository.validate(value)) {
                 count = value
                 it.copy(
                     input = text,
