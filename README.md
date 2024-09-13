@@ -2,6 +2,10 @@
 
 Android demo widget implemented with [Glance](https://developer.android.com/jetpack/androidx/releases/glance)
 
+> [!NOTE]
+>
+> version androidx.glance:glance*:1.0.0 is used
+
 ## Features
 
 - ✅ Stateful widget
