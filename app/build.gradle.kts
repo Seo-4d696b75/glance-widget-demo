@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId = "com.seo4d696b75.android.glance_widget_demo"
         minSdk = 27
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
