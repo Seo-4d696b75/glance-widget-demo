@@ -4,7 +4,7 @@ Android demo widget implemented with [Glance](https://developer.android.com/jetp
 
 > [!NOTE]
 >
-> version androidx.glance:glance*:1.0.0 is used
+> version androidx.glance:glance*:1.1.0 is used
 
 ## Features
 
@@ -15,6 +15,19 @@ Android demo widget implemented with [Glance](https://developer.android.com/jetp
 - ✅ Supports widget configuration (optional for Android 12 and above)
 - ✅ Supports reconfiguration (only for Android 12 and above)
 - ✅ Hilt with GlanceAppWidget and Worker
+- ✅ Unit test for glance ui
+
+
+
+Build app & widget
+```shell
+./gradlew app:assembleRelease
+```
+
+Run unit test
+```shell
+./gradlew widget:test
+```
 
 
 ### widget overview
