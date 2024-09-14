@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.seo4d696b75.android.glance_widget_demo.data"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 27
