@@ -16,6 +16,7 @@ Android demo widget implemented with [Glance](https://developer.android.com/jetp
 - ✅ Supports reconfiguration (only for Android 12 and above)
 - ✅ Hilt with GlanceAppWidget and Worker
 - ✅ Unit test for glance ui
+- ✅ Can be added with in-app operation
 
 
 

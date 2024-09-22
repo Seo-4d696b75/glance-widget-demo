@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_hello_message">Hello glance widget!</string>
+    <string name="home_title">Hello glance widget!</string>
+    <string name="add_widget_title">Add widget</string>
+    <string name="add_widget_with_configuration_label">With configuration</string>
+    <string name="add_widget_without_configuration_label">Without configuration</string>
     <string name="configure_app_bar">Widget Configuration</string>
     <string name="configure_message">Enter initial number displayed on the widget.</string>
     <string name="configure_complete_button_label">Complete</string>
